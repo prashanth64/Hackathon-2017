@@ -2,45 +2,59 @@
     <!-- master -->
     <form class="form-horizontal well" data-ng-if="(openAccountController.userType === 'master')">
         <div class="row">
-            <label class="control-label col-sm-2" for="email">Employee Name</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">John Smith</p>
-            </div>
-        </div>
-        <div class="row">
-            <label class="control-label col-sm-2" for="email">Employee Id</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">121-121-11-12</p>
-            </div>
-        </div>
-        <div class="row">
-            <label class="control-label col-sm-2" for="email">Employee email</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">johnsmith@blblaBank.com</p>
-            </div>
-        </div>
-    </form>
+			<div class="col-sm-8">
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee Name</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">John Smith</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee Id</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">121-121-11-12</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee email</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">johnsmith@blblaBank.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<span class="employepic"></span>
+			</div>
+		</div>
+	</form>
     <!-- slave -->
     <form class="form-horizontal well" data-ng-if="(openAccountController.userType === 'slave')">
         <div class="row">
-            <label class="control-label col-sm-2" for="email">Customer Name</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">Sara Michal</p>
-            </div>
-        </div>
-        <div class="row">
-            <label class="control-label col-sm-2" for="email">Customer Id</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">121-121-11-12</p>
-            </div>
-        </div>
-        <div class="row">
-            <label class="control-label col-sm-2" for="email">Customer email</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">SaraMichal@blblaBank.com</p>
-            </div>
-        </div>
-    </form>
+			<div class="col-sm-8">
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer Name</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">Sara Michal</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer Id</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">121-121-11-12</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer email</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">SaraMichal@blblaBank.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<span class="customerpic"></span>
+			</div>
+		</div>
+	</form>
     <nav class="navbar navbar-default" data-ng-if="(openAccountController.userType === 'master')">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
@@ -49,17 +63,13 @@
 		  <li><a href="#">Bank Mail</a></li>
 		  <li><a href="#">Task List</a></li>
 		</ul>
-		<ul class="nav navbar-nav navbar-right">
-		    <li><a href="#">Logout</a></li>
-		</ul>
-	  </div>
+		</div>
 	</nav>
     <div class="formHolder">
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                 <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#openPaymentAccount">Open Fixed Savings</a>
+                <div class="panel-heading" data-target="#openPaymentAccount" data-parent="#accordion" data-toggle="collapse">
+                    <h4 class="panel-title">Open Fixed Savings
               </h4>
                 </div>
                 <div id="openPaymentAccount" class="panel-collapse collapse">
@@ -73,13 +83,13 @@
                                         <input class="form-control" name="bcNumber" data-ng-model="openAccObj.bcNumber" type="text" id="bcNumber" maxlength="10" placeholder="BcNumber">
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" id="RegisterBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Start Co-browsing</button>
+                                        <button type="submit" id="RegisterBtn" data-ng-disabled="(openAccObj.bcNumber !== 'BC66731')" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Start Co-browsing</button>
                                     </div>
                                 </div>
                                 <!-- product name -->
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label" for="productName">Product Name</label>
-                                    <div class="col-md-6">
+                                    <div class="col-sm-6">
                                         <p class="form-control-static">Fixed Account</p>
                                     </div>
                                 </div>
@@ -98,15 +108,15 @@
                                 <!-- Intial deposit -->
                                 <div class="form-group" data-ng-class="(focusElement == 'intialdeposit') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="intialdeposit">Intial Deposit</label>
-                                    <div class="col-md-6">
-                                        <input class="form-control" placeholder="€ 00.00" type="text" name="intialdeposit" data-ng-model="openAccObj.intialdeposit" data-ng-change="openAccountController.onOpenConnection('intialdeposit');">
+                                    <div class="col-sm-6">
+                                        <input class="form-control" data-ng-disabled="(openAccountController.userType === 'slave')" placeholder="€ 00.00" type="text" name="intialdeposit" data-ng-model="openAccObj.intialdeposit" data-ng-change="openAccountController.onOpenConnection('intialdeposit');">
                                     </div>
                                 </div>
                                 <!-- Intrest Settlement -->
-                                <div class="form-group" data-ng-class="(focusElement == 'intrestsettlement') ? 'has-success': ''">
+                               <div class="form-group" data-ng-class="(focusElement == 'intrestsettlement') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="intrestsettlement">Intrest Settlement</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="intrestsettlement" data-ng-model="openAccObj.intrestSettlement" data-ng-change="openAccountController.onOpenConnection('intrestSettlement');">
+                                        <select class="form-control" data-ng-disabled="(openAccountController.userType === 'slave')" name="intrestsettlement" data-ng-model="openAccObj.intrestSettlement" data-ng-change="openAccountController.onOpenConnection('intrestSettlement');">
                                             <option value="">Select</option>
                                             <option value="531">531.950.6912</option>
                                             <option value="950">950.269.3423</option>
@@ -118,7 +128,7 @@
                                 <div class="form-group" data-ng-class="(focusElement == 'capitalsettlement') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="capitalsettlement">Capital Settlement</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="intrestsettlement" data-ng-model="openAccObj.capitalsettlement" data-ng-change="openAccountController.onOpenConnection('capitalsettlement');">
+                                        <select class="form-control" data-ng-disabled="(openAccountController.userType === 'slave')" name="intrestsettlement" data-ng-model="openAccObj.capitalsettlement" data-ng-change="openAccountController.onOpenConnection('capitalsettlement');">
                                             <option value="">Select</option>
                                             <option value="432">423.890.1256</option>
                                             <option value="893">893.456.5432</option>
@@ -129,27 +139,27 @@
                                 <!-- email -->
                                 <div class="form-group" data-ng-class="(focusElement == 'email') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="email">Email</label>
-                                    <div class="col-md-6">
-                                        <input class="form-control" name="email" placeholder="xyz@abc.com" id="email" data-ng-model="openAccObj.email" type="text" data-ng-change="openAccountController.onOpenConnection('email');">
+                                    <div class="col-sm-6">
+                                        <input class="form-control" data-ng-disabled="(openAccountController.userType === 'slave')" name="email" placeholder="xyz@abc.com" id="email" data-ng-model="openAccObj.email" type="text" data-ng-change="openAccountController.onOpenConnection('email');">
                                     </div>
                                 </div>
                                 <!-- start date -->
-                                <div class="form-group" data-ng-class="(focusElement == 'startDate') ? 'has-success': ''">
+                               <div class="form-group" data-ng-class="(focusElement == 'startDate') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="startDate">Start Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" placholder="" name="startDate" data-ng-model="openAccObj.startDate" data-ng-change="openAccountController.onOpenConnection('startDate');">
+                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')" class="form-control" placholder="" name="startDate" data-ng-model="openAccObj.startDate" value="{{openAccObj.startDate | date: 'M/d/yy'}}" data-ng-change="openAccountController.onOpenConnection('startDate');">
                                     </div>
                                 </div>
                                 <!-- end date -->
                                 <div class="form-group" data-ng-class="(focusElement == 'endDate') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="startDate">End Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" class="form-control" name="endDate" placeholder=""  data-ng-model="openAccObj.endDate" data-ng-change="openAccountController.onOpenConnection('endDate');">
+                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')" class="form-control" name="endDate"  data-ng-model="openAccObj.endDate" value="{{openAccObj.endDate | date: 'M/d/yy'}}" data-ng-change="openAccountController.onOpenConnection('endDate');">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-4 col-sm-6">
-                                      <button type="submit" class="btn btn-default">submit</button>
+                                      <button type="button" data-toggle="modal" data-target="#digisignModal" data-ng-disabled="(openAccountController.userType === 'slave')" class="btn btn-primary">submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -158,9 +168,9 @@
                 </div>
             </div>
             <div class="panel panel-default" data-ng-if="(openAccountController.userType === 'master')">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                 <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseTwo">Open Business Account</a>
+                <div class="panel-heading" data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion">
+                    <h4 class="panel-title">Open Business Account
+                 <!-- <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseTwo">Open Business Account</a> -->
               </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
@@ -169,7 +179,7 @@
 						<div class="formBody">
                             <form class="form-horizontal" novalidate="novalidate">
 							   <!-- Bc Number -->
-                                <div class="form-group" data-ng-if="(openAccountController.userType === 'master')">
+                                <!--<div class="form-group" data-ng-if="(openAccountController.userType === 'master')">
                                     <label class="col-sm-4 control-label" for="bcNumber">BC Number</label>
                                     <div class="col-sm-4">
                                         <input class="form-control" name="bcNumber" data-ng-model="" type="text" id="bcNumber" maxlength="10" placeholder="BcNumber">
@@ -177,57 +187,57 @@
                                     <div class="col-sm-2">
                                         <button type="submit" id="RegisterBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Start Co-browsing</button>
                                     </div>
-                                </div>
+                                </div>-->
 								
 								<!-- Business name -->
                                 <div class="form-group" data-ng-class="(focusElement == 'businessname') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="businessname">Business Name</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" name="businessname" data-ng-model="" data-ng-change="">
+                                        <input class="form-control" type="text" name="businessname">
                                     </div>
                                 </div>
 								<!-- client name -->
-                                <div class="form-group" data-ng-class="(focusElement == '') ? 'has-success': ''">
+                                <!--<div class="form-group" data-ng-class="(focusElement == '') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="client">Client</label>
                                     <div class="col-md-6">
                                         <label class="radio-inline">
-      <input type="radio" name="optradio">Existing
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="optradio">New
-    </label>
+										  <input type="radio" name="optradio">Existing
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="optradio">New
+										</label>
                                     </div>
-                                </div>
+                                </div>-->
 								<!-- Business Address -->
-                                <div class="form-group" data-ng-class="(focusElement == 'businessaddress') ? 'has-success': ''">
+                                <!--<div class="form-group" data-ng-class="(focusElement == 'businessaddress') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="businessaddress">Business Address</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" name="businessaddress" data-ng-model="" data-ng-change="">
+                                        <input class="form-control" type="text" name="businessaddress">
                                     </div>
-                                </div>
+                                </div>-->
 								<!-- Business Phone -->
-                                <div class="form-group" data-ng-class="(focusElement == 'businessphone') ? 'has-success': ''">
+                                <!--<div class="form-group" data-ng-class="(focusElement == 'businessphone') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="businessphone">Business Phone</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" name="businessphone" data-ng-model="" data-ng-change="">
+                                        <input class="form-control" type="text" name="businessphone">
                                     </div>
-                                </div>
+                                </div>-->
 								<!-- email address -->
-                                <div class="form-group" data-ng-class="(focusElement == 'emailaddr') ? 'has-success': ''">
+                              <!--  <div class="form-group" data-ng-class="(focusElement == 'emailaddr') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="emailaddr">Email Address</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" name="emailaddr" data-ng-model="" data-ng-change="">
+                                        <input class="form-control" type="text" name="emailaddr">
                                     </div>
-                                </div>
+                                </div>-->
 								<!-- state -->
-                                <div class="form-group" data-ng-class="(focusElement == 'state') ? 'has-success': ''">
+                                <!--<div class="form-group" data-ng-class="(focusElement == 'state') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="state">State</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" name="state" data-ng-model="" data-ng-change="">
+                                        <input class="form-control" type="text" name="state">
                                     </div>
-                                </div>
+                                </div>-->
 								<!-- product type -->
-                                <div class="form-group" data-ng-class="(focusElement == 'producttype') ? 'has-success': ''">
+                                <!--<div class="form-group" data-ng-class="(focusElement == 'producttype') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="producttype">Product Type</label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="producttype" data-ng-model="" data-ng-change="openAccountController.onOpenConnection('duration');">
@@ -238,7 +248,7 @@
 											<option value="4">Management Services</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div>-->
 							</form>
 						</div>	
                     
@@ -246,9 +256,9 @@
                 </div>
             </div>
             <div class="panel panel-default" data-ng-if="(openAccountController.userType === 'master')">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                 <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseThree">Change Address</a>
+                <div class="panel-heading" data-parent="#accordion" data-toggle="collapse" data-target="#collapseThree">
+                    <h4 class="panel-title">Change Address
+                 <!-- <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseThree">Change Address</a> -->
               </h4>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse">
@@ -258,43 +268,24 @@
                 </div>
             </div>
             <div class="panel panel-default" data-ng-if="(openAccountController.userType === 'master')">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                 <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseFour">Change Nominee Details</a>
+                <div class="panel-heading" data-toggle="collapse" data-target="#collapseFour" data-parent="#accordion">
+                    <h4 class="panel-title">Change Nominee Details
+                 <!-- <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseFour">Change Nominee Details</a> -->
               </h4>
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse">
                     <div class="panel-body">
                         <form class="form-horizontal" novalidate="novalidate">
-                          <!-- email -->
-                              <div class="form-group" data-ng-class="(focusElement == 'email') ? 'has-success': ''">
-                                  <label class="col-sm-4 control-label" for="email">Email</label>
-                                  <div class="col-md-6">
-                                      <input class="form-control" name="email" placeholder="xyz@abc.com" id="email" data-ng-model="openAccObj.email" type="text" data-ng-change="openAccountController.onOpenConnection('email');">
-                                  </div>
-                              </div>
-                              <!-- email -->
-                              <div class="form-group" data-ng-class="(focusElement == 'email') ? 'has-success': ''">
-                                  <label class="col-sm-4 control-label" for="email">Email</label>
-                                  <div class="col-md-6">
-                                      <input class="form-control" name="email" placeholder="xyz@abc.com" id="email" data-ng-model="openAccObj.email" type="text" data-ng-change="openAccountController.onOpenConnection('email');">
-                                  </div>
-                              </div>
-                              <!-- email -->
-                              <div class="form-group" data-ng-class="(focusElement == 'email') ? 'has-success': ''">
-                                  <label class="col-sm-4 control-label" for="email">Email</label>
-                                  <div class="col-md-6">
-                                      <input class="form-control" name="email" placeholder="xyz@abc.com" id="email" data-ng-model="openAccObj.email" type="text" data-ng-change="openAccountController.onOpenConnection('email');">
-                                  </div>
-                              </div>
+                          
+                              
                         </form>
                     </div>
                 </div>
             </div>
 			<div class="panel panel-default" data-ng-if="(openAccountController.userType === 'master')">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                 <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseFive">Open Critical Illness Insurance</a>
+                <div class="panel-heading" data-toggle="collapse" data-target="#collapseFive" data-parent="#accordion">
+                    <h4 class="panel-title">Open Critical Illness Insurance
+                 <!-- <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseFive">Open Critical Illness Insurance</a> -->
               </h4>
                 </div>
                 <div id="collapseFive" class="panel-collapse collapse">
@@ -305,7 +296,8 @@
             </div>
         </div>
     </div>
-    <!-- modal -->
+	
+    <!-- copy url modal -->
     <div class="container">
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -324,27 +316,36 @@
             </div>
         </div>
     </div>
-	<!-- Modal -->
-  <div class="modal fade" id="digisignModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center green-color">Signin</h4>
-        </div>
-        <div class="modal-body">
-          <label>User Name</label>
-		  <input type="text" id="username" class="form-control">
-		  <label>Password</label>
-		  <input type="text" id="password" class="form-control">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+	
+	<!-- sign in Modal -->
+   <div class="modal fade" id="digisignModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+		 <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title text-center green-color">Signin</h4>
+			</div>
+			<div class="modal-body">
+			<form class="form-horizontal" novalidate="novalidate">
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="email">Email</label>
+					<div class="col-sm-6">
+						<input class="form-control" name="email" placeholder="xyz@abc.com" id="email" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="email">Password</label>
+					<div class="col-sm-6">
+						<input class="form-control" name="Password" placeholder="xxxxxxx" id="email" type="password">
+					</div>
+				</div>
+			</form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-primary">Submit</button>
+			</div>
+		  </div>
+		</div>
+	</div>
 </div>
