@@ -25,7 +25,7 @@
         <div class="row">
             <label class="control-label col-sm-2" for="email">Customer Name</label>
             <div class="col-sm-10">
-                <p class="form-control-static">Persona Name</p>
+                <p class="form-control-static">Sara Michal</p>
             </div>
         </div>
         <div class="row">
@@ -37,14 +37,23 @@
         <div class="row">
             <label class="control-label col-sm-2" for="email">Customer email</label>
             <div class="col-sm-10">
-                <p class="form-control-static">johnsmith@blblaBank.com</p>
+                <p class="form-control-static">SaraMichal@blblaBank.com</p>
             </div>
         </div>
     </form>
-    <!-- manage Accounts -->
-    <div class="text-center" data-ng-if="(openAccountController.userType === 'master')">
-        <h3 align="left">Manage Accounts</h3>
-    </div>
+    <nav class="navbar navbar-default" data-ng-if="(openAccountController.userType === 'master')">
+	  <div class="container-fluid">
+		<ul class="nav navbar-nav">
+		  <li ><a href="#">Home</a></li>
+		  <li class="active"><a href="#">Products</a></li>
+		  <li><a href="#">Bank Mail</a></li>
+		  <li><a href="#">Task List</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+		    <li><a href="#">Logout</a></li>
+		</ul>
+	  </div>
+	</nav>
     <div class="formHolder">
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
