@@ -156,7 +156,82 @@
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>would permit you to start a fixed deposit without savings account in the bank. Interest proceeds are transferred to your savings account through NEFT. However many nationalized banks don't allow opening a fixed deposit without opening a savings account with them.</p>
+                        <!--<p>would permit you to start a fixed deposit without savings account in the bank. Interest proceeds are transferred to your savings account through NEFT. However many nationalized banks don't allow opening a fixed deposit without opening a savings account with them.</p>-->
+						<div class="formBody">
+                            <form class="form-horizontal" novalidate="novalidate">
+							   <!-- Bc Number -->
+                                <div class="form-group" data-ng-if="(openAccountController.userType === 'master')">
+                                    <label class="col-sm-4 control-label" for="bcNumber">BC Number</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" name="bcNumber" data-ng-model="" type="text" id="bcNumber" maxlength="10" placeholder="BcNumber">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="submit" id="RegisterBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Start Co-browsing</button>
+                                    </div>
+                                </div>
+								
+								<!-- Business name -->
+                                <div class="form-group" data-ng-class="(focusElement == 'businessname') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="businessname">Business Name</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="businessname" data-ng-model="" data-ng-change="">
+                                    </div>
+                                </div>
+								<!-- client name -->
+                                <div class="form-group" data-ng-class="(focusElement == '') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="client">Client</label>
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+      <input type="radio" name="optradio">Existing
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">New
+    </label>
+                                    </div>
+                                </div>
+								<!-- Business Address -->
+                                <div class="form-group" data-ng-class="(focusElement == 'businessaddress') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="businessaddress">Business Address</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="businessaddress" data-ng-model="" data-ng-change="">
+                                    </div>
+                                </div>
+								<!-- Business Phone -->
+                                <div class="form-group" data-ng-class="(focusElement == 'businessphone') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="businessphone">Business Phone</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="businessphone" data-ng-model="" data-ng-change="">
+                                    </div>
+                                </div>
+								<!-- email address -->
+                                <div class="form-group" data-ng-class="(focusElement == 'emailaddr') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="emailaddr">Email Address</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="emailaddr" data-ng-model="" data-ng-change="">
+                                    </div>
+                                </div>
+								<!-- state -->
+                                <div class="form-group" data-ng-class="(focusElement == 'state') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="state">State</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="state" data-ng-model="" data-ng-change="">
+                                    </div>
+                                </div>
+								<!-- product type -->
+                                <div class="form-group" data-ng-class="(focusElement == 'producttype') ? 'has-success': ''">
+                                    <label class="col-sm-4 control-label" for="producttype">Product Type</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="producttype" data-ng-model="" data-ng-change="openAccountController.onOpenConnection('duration');">
+                                            <option value="">Select product type</option>
+                                            <option value="1">Trade Services</option>
+                                            <option value="2">Current Account</option>
+                                            <option value="3">Business Account</option>
+											<option value="4">Management Services</option>
+                                        </select>
+                                    </div>
+                                </div>
+							</form>
+						</div>	
                     
 					</div>
                 </div>
