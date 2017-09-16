@@ -55,16 +55,16 @@
 			</div>
 		</div>
 	</form>
-    <nav class="navbar navbar-default" data-ng-if="(openAccountController.userType === 'master')">
-	  <div class="container-fluid">
-		<ul class="nav navbar-nav">
-		  <li ><a href="#">Home</a></li>
-		  <li class="active"><a href="#">Products</a></li>
-		  <li><a href="#">Bank Mail</a></li>
-		  <li><a href="#">Task List</a></li>
-		</ul>
+
+	<div class="form-group">
+		<div class="btn-group btn-group-justified">
+			<a href="#" class="btn btn-primary">Home</a>
+			<a href="#" class="btn btn-primary active">Products</a>
+			<a href="#" class="btn btn-primary">Bank Mail</a>
+			<a href="#" class="btn btn-primary">Task list</a>
 		</div>
-	</nav>
+	</div>
+
     <div class="formHolder">
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -97,7 +97,7 @@
                                 <div class="form-group" data-ng-class="(focusElement == 'duration') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="duration">Duration</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="duration" data-ng-model="openAccObj.duration" data-ng-change="openAccountController.onOpenConnection('duration');">
+                                        <select class="form-control" data-ng-disabled="(openAccountController.userType =='slave')" name="duration" data-ng-model="openAccObj.duration" data-ng-change="openAccountController.onOpenConnection('duration');">
                                             <option value="">Select</option>
                                             <option value="1">0 - 6 months</option>
                                             <option value="2">1 - 2 years</option>
@@ -147,19 +147,19 @@
                                <div class="form-group" data-ng-class="(focusElement == 'startDate') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="startDate">Start Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')" class="form-control" placholder="" name="startDate" data-ng-model="openAccObj.startDate" value="{{openAccObj.startDate | date: 'M/d/yy'}}" data-ng-change="openAccountController.onOpenConnection('startDate');">
+                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')" class="form-control" placholder="" name="startDate" data-ng-model="openAccObj.startDate" value="{{openAccObj.startDate | date: 'yyyy-MM-dd'}}" data-ng-change="openAccountController.onOpenConnection('startDate');">
                                     </div>
                                 </div>
                                 <!-- end date -->
                                 <div class="form-group" data-ng-class="(focusElement == 'endDate') ? 'has-success': ''">
                                     <label class="col-sm-4 control-label" for="startDate">End Date</label>
                                     <div class="col-sm-6">
-                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')" class="form-control" name="endDate"  data-ng-model="openAccObj.endDate" value="{{openAccObj.endDate | date: 'M/d/yy'}}" data-ng-change="openAccountController.onOpenConnection('endDate');">
+                                        <input type="date" data-ng-disabled="(openAccountController.userType === 'slave')"  class="form-control" name="endDate"  data-ng-model="openAccObj.endDate" value="{{openAccObj.endDate | date: 'yyyy-MM-dd'}}" data-ng-change="openAccountController.onOpenConnection('endDate');">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-4 col-sm-6">
-                                      <button type="button" data-toggle="modal" data-target="#digisignModal" data-ng-disabled="(openAccountController.userType === 'slave')" class="btn btn-primary">submit</button>
+                                      <button type="button" data-toggle="modal" data-target="#digisignModal" data-ng-disabled="(openAccountController.userType === 'master')" class="btn btn-primary">submit</button>
                                     </div>
                                 </div>
                             </form>
