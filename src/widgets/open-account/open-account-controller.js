@@ -24,6 +24,7 @@ function openAccountController($scope, request,$state, $location, $rootScope) {
             self.userType = 'master';
 			$rootScope.userType = 'master';
         }
+		$scope.pageStatus = 'openAccount';
         self.createConnection();
     }
 	
@@ -32,6 +33,7 @@ function openAccountController($scope, request,$state, $location, $rootScope) {
     *@description: navigate to thank you screen
     */
 	self.naviagteToThankYou = function() {
+		self.onOpenConnection('ThankYou');
 		$state.go("thankYou");
 	}
         
@@ -81,7 +83,6 @@ function openAccountController($scope, request,$state, $location, $rootScope) {
     * @description: These method is used to send data to server
     */
     self.onOpenConnection = function(focusValue) {
-        console.log("calling method: onOpenConnection");
             self.stopSend = true;
             var msg = {
                 type: "utf8",
@@ -110,13 +111,18 @@ function openAccountController($scope, request,$state, $location, $rootScope) {
             return;
         }
         console.log("response", JSON.parse(json.obj.text).focus)
+		
         $scope.$apply(function() {
             if (json.obj && json.obj.text) {
                 var robj = JSON.parse(json.obj.text).obj;
                 $scope.openAccObj = angular.copy(robj);
-               // document.getElementByName(JSON.parse(json.obj.text).focus).focus();
-                $scope.focusElement = JSON.parse(json.obj.text).focus;
-             //   document.getElementById($scope.focusElement).focus();
+				var focusType = JSON.parse(json.obj.text).focus;
+				if(focusType == 'ThankYou') {
+					$scope.pageStatus = 'ThankYou';
+				} else {
+					$scope.pageStatus = 'openAccount';
+					$scope.focusElement = focusType;
+				}
                 console.log("$scope.openAccObj", $scope.openAccObj);
                 self.stopSend = false;
             }

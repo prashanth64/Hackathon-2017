@@ -56,7 +56,7 @@
 		</div>
 	</form>
 
-	<div class="form-group" data-ng-if="">
+	<div class="form-group" data-ng-if="(openAccountController.userType === 'master')">
 		<div class="btn-group btn-group-justified">
 			<a href="#" class="btn btn-primary">Home</a>
 			<a href="#" class="btn btn-primary active">Products</a>
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 
-    <div class="formHolder">
+    <div class="formHolder" ng-if="(pageStatus == 'openAccount')">
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading" data-target="#openPaymentAccount" data-parent="#accordion" data-toggle="collapse">
@@ -297,7 +297,17 @@
         </div>
     </div>
 	
-    <!-- copy url modal -->
+    
+	<div ng-if="(pageStatus == 'ThankYou')">
+		<div class="well" data-ng-if="(userType == 'slave')" align="center">
+			<h2>Thank you</h2>
+			<p>Your submission has been received.</p>
+		</div>
+		<div class="well" data-ng-if="(userType == 'master')" align="center">
+			<p>Form has been submitted successfully</p>
+		</div>
+	</div>
+	<!-- copy url modal -->
     <div class="container">
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -343,7 +353,7 @@
 			</form>
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="openAccountController.naviagteToThankYou();">Submit</button>
+			  <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="openAccountController.onOpenConnection('ThankYou');">Submit</button>
 			</div>
 		  </div>
 		</div>
