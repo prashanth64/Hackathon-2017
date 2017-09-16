@@ -69,7 +69,7 @@
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading" data-target="#openPaymentAccount" data-parent="#accordion" data-toggle="collapse">
-                    <h4 class="panel-title">Open Fixed Savings
+                    <h4 class="panel-title" id="openfixedsavings">Open Fixed Savings
               </h4>
                 </div>
                 <div id="openPaymentAccount" class="panel-collapse collapse" ng-class="((openAccountController.userType == 'slave') ? 'in': '')">
@@ -169,7 +169,7 @@
             </div>
             <div class="panel panel-default" data-ng-if="(openAccountController.userType === 'master')">
                 <div class="panel-heading" data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion">
-                    <h4 class="panel-title">Open Business Account
+                    <h4 class="panel-title" id="openbusinessaccount">Open Business Account
                  <!-- <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" data-target="#collapseTwo">Open Business Account</a> -->
               </h4>
                 </div>
