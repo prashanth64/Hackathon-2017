@@ -1,0 +1,65 @@
+<div class="container" data-ng-controller="thankYouController as thankYouController">
+	<form class="form-horizontal well" data-ng-if="(userType === 'master')">
+        <div class="row">
+			<div class="col-sm-8">
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee Name</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">Andrea</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee Id</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">121-121-11-12</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Employee email</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">andrea@abnamro.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<span class="employepic"></span>
+			</div>
+		</div>
+	</form>
+    <!-- slave -->
+    <form class="form-horizontal well" data-ng-if="(userType === 'slave')">
+        <div class="row">
+			<div class="col-sm-8">
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer Name</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">Mark Rutte</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer Id</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">121-121-11-12</p>
+					</div>
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-4" for="email">Customer email</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">Markrutte@abnamro.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<span class="customerpic"></span>
+			</div>
+		</div>
+	</form>
+
+	<div class="well" data-ng-if="(userType == 'slave')" align="center">
+		<h2>Thank you</h2>
+		<p>Your submission has been received.</p>
+	</div>
+	<div class="well" data-ng-if="(userType == 'master')" align="center">
+		<p>Form has been submitted successfully</p>
+	</div>
+</div>

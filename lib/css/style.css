@@ -13,7 +13,7 @@
 	color:green;
 }
 .employepic {
-	background-image:url('../../images/download2.jpg');
+	background-image:url('../../images/d1.jpg');
 	width: 120px;
     height: 120px;
 	border-radius:50%;
@@ -21,7 +21,7 @@
 	background-repeat:no-repeat;
 }
 .customerpic {
-	background-image:url('../../images/d1.jpg');
+	background-image:url('../../images/download2.jpg');
 	width: 120px;
     height: 120px;
 	border-radius:50%;
@@ -37,4 +37,18 @@
 }
 .formHolder .panel {
 	cursor:pointer;
+}
+.headerText .navbar-default{
+	background-color: #009286;
+    color: #efefef;
+}
+.headerText .navbar-default .navbar-brand {
+	color: #efefef;
+	font-size:22px;
+	}
+@media screen and (min-width: 320px) and (max-width:768px) {
+ #bcNumberField
+  {
+    margin-bottom:20px;
+  }
 }

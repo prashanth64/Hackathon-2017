@@ -5,7 +5,7 @@ angular
     .controller('openAccountController', openAccountController);
 
 /* @ngInject */
-openAccountController.$inject = ['$scope', 'request', '$state','$stateParams', '$location'];
+openAccountController.$inject = ['$scope', 'request', '$state', '$location', '$rootScope'];
 
 /*
  * @ngdocs method
@@ -14,16 +14,26 @@ openAccountController.$inject = ['$scope', 'request', '$state','$stateParams', '
  * @requires $scope
  * @requires request
  */
-function openAccountController($scope, request,$state, $stateParams, $location) {
+function openAccountController($scope, request,$state, $location, $rootScope) {
     var self = this;
     self.init = function() {
         if($location.$$search.type && $location.$$search.type === 'slave') {
-            self.userType = 'slave'
+            self.userType = 'slave';
+			$rootScope.userType = 'slave';
         } else {
             self.userType = 'master';
+			$rootScope.userType = 'master';
         }
         self.createConnection();
     }
+	
+	/*
+    *@name: naviagteToThankYou
+    *@description: navigate to thank you screen
+    */
+	self.naviagteToThankYou = function() {
+		$state.go("thankYou");
+	}
         
     /*
     *@name: createConnection

@@ -6,7 +6,7 @@
 				<div class="row">
 					<label class="control-label col-sm-4" for="email">Employee Name</label>
 					<div class="col-sm-6">
-						<p class="form-control-static">John Smith</p>
+						<p class="form-control-static">Andrea</p>
 					</div>
 				</div>
 				<div class="row">
@@ -18,7 +18,7 @@
 				<div class="row">
 					<label class="control-label col-sm-4" for="email">Employee email</label>
 					<div class="col-sm-6">
-						<p class="form-control-static">johnsmith@blblaBank.com</p>
+						<p class="form-control-static">andrea@abnamro.com</p>
 					</div>
 				</div>
 			</div>
@@ -34,7 +34,7 @@
 				<div class="row">
 					<label class="control-label col-sm-4" for="email">Customer Name</label>
 					<div class="col-sm-6">
-						<p class="form-control-static">Sara Michal</p>
+						<p class="form-control-static">Mark Rutte</p>
 					</div>
 				</div>
 				<div class="row">
@@ -46,7 +46,7 @@
 				<div class="row">
 					<label class="control-label col-sm-4" for="email">Customer email</label>
 					<div class="col-sm-6">
-						<p class="form-control-static">SaraMichal@blblaBank.com</p>
+						<p class="form-control-static">Markrutte@abnamro.com</p>
 					</div>
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 		</div>
 	</form>
 
-	<div class="form-group">
+	<div class="form-group" data-ng-if="">
 		<div class="btn-group btn-group-justified">
 			<a href="#" class="btn btn-primary">Home</a>
 			<a href="#" class="btn btn-primary active">Products</a>
@@ -72,14 +72,14 @@
                     <h4 class="panel-title">Open Fixed Savings
               </h4>
                 </div>
-                <div id="openPaymentAccount" class="panel-collapse collapse">
+                <div id="openPaymentAccount" class="panel-collapse collapse" ng-class="((openAccountController.userType == 'slave') ? 'in': '')">
                     <div class="panel-body">
                         <div class="formBody">
                             <form class="form-horizontal" novalidate="novalidate">
                                 <!-- Bc Number -->
                                 <div class="form-group" data-ng-if="(openAccountController.userType === 'master')">
                                     <label class="col-sm-4 control-label" for="bcNumber">BC Number</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4" id="bcNumberField">
                                         <input class="form-control" name="bcNumber" data-ng-model="openAccObj.bcNumber" type="text" id="bcNumber" maxlength="10" placeholder="BcNumber">
                                     </div>
                                     <div class="col-sm-2">
@@ -343,9 +343,10 @@
 			</form>
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-primary">Submit</button>
+			  <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="openAccountController.naviagteToThankYou();">Submit</button>
 			</div>
 		  </div>
 		</div>
 	</div>
+	 
 </div>

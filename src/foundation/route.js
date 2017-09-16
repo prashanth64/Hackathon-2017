@@ -19,6 +19,10 @@
 		.state("openAccount", {
 			url:'/openAccount',
 			templateUrl:'src/widgets/open-account/open-account.html'
+		})
+		.state("thankYou",{
+			url: '/thankYou',
+			templateUrl: 'src/widgets/thank-you/thank-you.html'
 		});
 	});
 }());
